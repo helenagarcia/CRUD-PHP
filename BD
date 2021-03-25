@@ -1,0 +1,25 @@
+*** Comandos SQL ***
+
+-> Nome do Banco de Dados: recursoshumanos
+
+-> Criando a tabela departamentos:
+
+CREATE TABLE `recursoshumanos`.`departamentos` ( `id` INT NOT NULL AUTO_INCREMENT , 
+                                                 `nome` VARCHAR(100) NOT NULL , 
+                                                 `responsabilidade` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-> Criando a tabela funcionarios:
+
+CREATE TABLE `recursoshumanos`.`funcionarios` ( `registro` INT NOT NULL AUTO_INCREMENT , 
+                                                `nome` VARCHAR(100) NOT NULL , 
+                                                `cargo` VARCHAR(100) NOT NULL , 
+                                                `departamento_id` INT(11) NOT NULL , PRIMARY KEY (`registro`)) ENGINE = InnoDB;
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-> Atribuindo chave estrangeira (departamento_id) na tabela funcionarios:
+
+
+ALTER TABLE `funcionarios` ADD CONSTRAINT `fk_departamentos_funcionarios` FOREIGN KEY (`departamento_id`) REFERENCES `departamentos`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
