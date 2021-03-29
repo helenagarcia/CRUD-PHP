@@ -44,13 +44,8 @@ if ($_POST) {
         $nome = $_POST["nome"];
         $responsabilidade = $_POST["responsabilidade"];
 
-        $query = "UPDATE departamentos SET 
-            nome='$nome', 
-            responsabilidade='$responsabilidade'
-        WHERE 
-            id=$departamentoId
-        ";
-
+        $query = "UPDATE departamentos SET nome='$nome', responsabilidade='$responsabilidade'
+        WHERE id=$departamentoId";
         $updateResult = $conn->query($query);
 
         if ($updateResult) {
@@ -91,12 +86,12 @@ $conn->close();
 
              <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do departamento">
+                <input type="text" class="form-control" value="<?=$departamento["nome"]?>" id="nome" name="nome" placeholder="Nome do departamento">
             </div>
 
             <div class="mb-3">
                 <label for="responsabilidade" class="form-label">Responsabilidade</label>
-                <textarea type="text" class="form-control" id="responsabilidade" name="responsabilidade"></textarea>
+                <textarea type="text" class="form-control" id="responsabilidade" name="responsabilidade"><?=$departamento["responsabilidade"] ?></textarea>
             </div>
 
             <a href="index.php" class="btn btn-danger">Cancelar</a>

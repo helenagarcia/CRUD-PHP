@@ -67,7 +67,7 @@
 				<h1>Funcionários</h1>
 			</div>
 			<div class="col d-flex justify-content-end align-items-center">
-				<a class="btn btn-primary" href="add.php">Adicionar</a>
+				<a class="btn btn-success" href="add.php">Adicionar</a>
 			</div>
 		</div>
 
@@ -77,9 +77,10 @@
 					class="form-control" 
 					id="departamento_id" 
 					name="departamento_id">
-						<option value></option>
+					<option value></option>
 
 						<?php while($departamento = $departamentoResult->fetch_assoc()): ?>
+							
 							<option 
 								value="<?=$departamento["id"]?>"
 								<?= $departamento["id"] == $departamento_id ? 'selected' : '';?>
@@ -90,19 +91,20 @@
 						
 						<?php $departamentoResult->close(); ?>
 				</select>
-				<button class="btn btn-outline-secondary" type="submit">
+				<button class="btn btn-outline-info" type="submit">
 					Pesquisar
 				</button>
 			</div>
 		</form>
 
-		<table class="table table-striped table-bordered">
+		<table class="table table-hover table-dark">
 			<thead class="table-dark">
 				<tr>
-					<th>Registo</th>
+					<th>Identificador</th>
 					<th>Nome</th>
 					<th>Cargo</th>
 					<th>Departamento</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -124,18 +126,18 @@
 							<div class="btn-group" role="group">
 								<button 
 									type="button" 
-									class="btn btn-outline-primary"
+									class="btn btn-outline-danger"
 									onclick="confirmDelete(<?=$funcionario['registro']?>)">
 									Excluir
 								</button>
 								<a 
 									href="edit.php?registro=<?=$funcionario["registro"]?>" 
-									class="btn btn-outline-primary">
+									class="btn btn-outline-warning">
 									Editar
 								</a>
 								<a 
 									href="view.php?registro=<?=$funcionario["registro"]?>" 
-									class="btn btn-outline-primary">
+									class="btn btn-outline-info">
 									Ver
 								</a>
 							</div>
@@ -149,7 +151,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 <script>
 	const confirmDelete = (funcionarioRegistro) => {
-		const response = confirm("Deseja realmente excluir este produto?")
+		const response = confirm("Deseja realmente excluir este funcionário?")
 		if(response){
 			window.location.href = "delete.php?registro=" + funcionarioRegistro
 		}

@@ -123,12 +123,12 @@ $conn->close();
 
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do funcionário">
+                <input type="text" class="form-control" value="<?= $funcionario["nome"]?>" id="nome" name="nome" placeholder="Nome do funcionário">
             </div>
             
             <div class="mb-3">
                 <label for="cargo" class="form-label">Cargo</label>
-                <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Cargo do funcionário">
+                <input type="text" class="form-control" value="<?= $funcionario["cargo"]?>" id="cargo" name="cargo" placeholder="Cargo do funcionário">
             </div>
 
             <a href="index.php" class="btn btn-danger">Cancelar</a>

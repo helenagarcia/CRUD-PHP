@@ -42,16 +42,17 @@
 				<h1>Departamentos</h1>
 			</div>
 			<div class="col d-flex justify-content-end align-items-center">
-				<a class="btn btn-primary" href="add.php">Adicionar</a>
+				<a class="btn btn-success" href="add.php">Adicionar</a>
 			</div>
 		</div>
 
-		<table class="table table-striped table-bordered">
+		<table class="table table-hover table-dark">
 			<thead class="table-dark">
 				<tr>
-					<th>ID</th>
+					<th>Identificador</th>
 					<th>Nome</th>
 					<th>Responsabilidade</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -70,18 +71,18 @@
 							<div class="btn-group" role="group">
 								<button 
 									type="button" 
-									class="btn btn-outline-primary"
+									class="btn btn-outline-danger"
 									onclick="confirmDelete(<?=$departamento['id']?>)">
 									Excluir
 								</button>
 								<a 
 									href="edit.php?id=<?=$departamento["id"]?>" 
-									class="btn btn-outline-primary">
+									class="btn btn-outline-warning">
 									Editar
 								</a>
 								<a 
 									href="view.php?id=<?=$departamento["id"]?>" 
-									class="btn btn-outline-primary">
+									class="btn btn-outline-info">
 									Ver
 								</a>
 							</div>
