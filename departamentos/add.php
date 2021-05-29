@@ -1,5 +1,5 @@
 <?php
-require("../_config/connection.php");
+include("../departamentos/departamentoController.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,28 +17,14 @@ $result = false;
 $error = false;
 
 if ($_POST) {
-    try {
+//     try {
+
         $nome = $_POST["nome"];
         $responsabilidade = $_POST["responsabilidade"];
 
-        $query = "INSERT INTO departamentos (
-            nome, 
-            responsabilidade
-        ) VALUES (
-            '$nome',
-            '$responsabilidade'
-        )";
-        
-        $result = $conn->query($query);
-        $conn->close();
+        $controller = new DepartamentoController();
 
-        if ($result) {
-            header('Location: index.php?message=Departamento inserido com sucesso!!');
-            die();
-        }
-    } catch (Exception $e) {
-        $error = $e->getMessage();
-    }
+        $controller->inserir($nome, $responsabilidade);
 }
 ?>
 

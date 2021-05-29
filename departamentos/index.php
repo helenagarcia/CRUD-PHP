@@ -1,9 +1,7 @@
 <?php  
-	require("../_config/connection.php");
+	include("../departamentos/departamentoController.php");
 	$message = false;
-	if($_GET && $_GET["message"]){
-		$message = $_GET["message"];
-	}
+	$departamento_id = false;
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +20,9 @@
     ?>
 
 	<?php 
-		$query = "SELECT * FROM departamentos";
-		$result = $conn->query($query);
-		$rows = $result->fetch_all(MYSQLI_ASSOC);
-		$result->close();
-		$conn->close();
+		 $controller = new DepartamentoController();
+
+		 $controller->listarTodos();
 	?>
 	<section class="container mt-5 mb-5">
 
